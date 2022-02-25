@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\TodoList;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class TodoListController extends Controller
 {
@@ -15,5 +17,11 @@ class TodoListController extends Controller
     {
         $todo = TodoList::find($id);
         return response($todo);
+    }
+
+    public function store(Request $request)
+    {
+        $todolist = TodoList::created($request->all());
+        return response($todolist, Response::HTTP_CREATED);
     }
 }
