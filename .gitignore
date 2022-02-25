@@ -13,3 +13,10 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+/reports/Console/
+/reports/Exceptions/
+/reports/Http/
+/reports/Models/
+/reports/Providers/
+/reports/dashboard.html
+/reports/index.html
