@@ -20,10 +20,11 @@ class TodoListTest extends TestCase
     {
         $this->withoutExceptionHandling();  // brings me the exact errors
 
-        TodoList::create(['name' => 'my list']);
+        TodoList::factory()->count(2)->create(['name' => 'my list']);
 
         $response = $this->getJson(route('todo-list.index'));
 
-        $this->assertEquals(1, count($response->json()));
+        $this->assertEquals(2, count($response->json()));
+        $this->assertEquals('my list', $response->json()[0]['name']);
     }
 }
